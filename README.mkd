@@ -1,9 +1,24 @@
 # Elementary Cellular Automata
 
-We're just using MATLAB to perform some iterations of a user-specified
-elementary cellular automaton (ECA). The user can provide a first row to
+MATLAB functions to iterate some user-specified elementary cellular
+automaton (ECA) over a given input. The user can provide a first row to
 iterate from, or let the function generate a random initial state. Width
 of the space and number of iterations can also be specified.
+
+## Syntax
+
+```matlab
+field = ecaFun(wolframNumber, N, M, firstRow, doPlot)
+% field : the iterated output
+% wolframNumber : an integer between 0 and 255 specifying the ECA rule
+%                 to use
+% N : The number of iterations (rows) to generate
+% M : The width of the field to iterate over (optional, default = 70)
+% firstRow : The initial state, or first row (optional, default is a
+%            random row vector)
+% doPlot : Whether or not to plot the output (default = 1)
+
+```
 
 The `seedRow(width)` helper function is provided to create a first row
 that consists of a single, centered "live" cell. The `genEcaRule`
@@ -36,7 +51,9 @@ first row:
 
 ![Rule 101](rule101.png)
 
-Plotting is optional, and the output can be assigned to a matrix:
+Plotting is optional, and the output can be assigned to a matrix. Note
+that N is the number of iterations *after* the initial state, so the
+output will contain N+1 rows:
 
 ```matlab
 >> wolframNumber = 101;
