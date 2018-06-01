@@ -10,16 +10,54 @@ that consists of a single, centered "live" cell. The `genEcaRule`
 function just converts from wolfram number to a binary rule vector used
 by `ecaFun`, which does all the iterative work.
 
-## Example
+## Examples
 
-We'll just generate a few lines of celebrated Rule 30.
+We'll just generate a few lines of celebrated Rule 30:
 
 ```matlab
 >> wolframNumber = 30;          % corresponding to 0b00011110
 >> N = 70;                      % iterations (rows)
 >> M = 81;                      % space width (columns) 
 >> firstRow = seedRow(M);       % start with a single "live" cell
->> field = ecaFun(wolframNumber,N,M,firstRow); % Go!
+>> ecaFun(wolframNumber,N,M,firstRow); % Go!
 ```
 
 ![Rule 30](rule30.png)
+
+If we don't specify an initial state, the function generates a random
+first row:
+
+```matlab
+>> wolframNumber = 101;
+>> N = 70;
+>> M = 81;
+>> ecaFun(wolframNumber,N,M);
+```
+
+![Rule 101](rule101.png)
+
+Plotting is optional, and the output can be assigned to a matrix:
+
+```matlab
+>> wolframNumber = 101;
+>> N = 10;
+>> M = 10;
+>> firstRow = seedRow(M);
+>> field = ecaFun(wolframNumber,N,M,firstRow,0)
+
+field =
+
+     0     0     0     0     1     0     0     0     0     0
+     0     0     0     1     1     0     0     0     0     0
+     0     0     1     1     1     0     0     0     0     0
+     0     1     1     0     1     0     0     0     0     0
+     1     1     1     1     1     0     0     0     0     0
+     1     0     0     0     1     0     0     0     0     1
+     1     0     0     1     1     0     0     0     1     1
+     1     0     1     1     1     0     0     1     1     0
+     1     1     1     0     1     0     1     1     1     1
+     0     0     1     1     1     1     1     0     0     0
+     0     1     1     0     0     0     1     0     0     0
+```
+
+Enjoy!
