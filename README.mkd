@@ -5,8 +5,10 @@ elementary cellular automaton (ECA). The user can provide a first row to
 iterate from, or let the function generate a random initial state. Width
 of the space and number of iterations can also be specified.
 
-A seedRow(width) helper function is provided to create a first row that
-consists of a single, centered "live" cell.
+The `seedRow(width)` helper function is provided to create a first row
+that consists of a single, centered "live" cell. The `genEcaRule`
+function just converts from wolfram number to a binary rule vector used
+by `ecaFun`, which does all the iterative work.
 
 ## Example
 
