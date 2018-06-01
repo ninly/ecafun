@@ -1,0 +1,20 @@
+# Elementary Cellular Automatons
+
+We're just using MATLAB to perform some iterations of a user-specified
+elementary cellular automaton (ECA). The user can provide a first row to
+iterate from, or let the function generate a random initial state. Width
+of the space and number of iterations can also be specified.
+
+## Example
+
+We'll just generate a few lines of celebrated Rule 30.
+
+```matlab
+>> wolframNumber = 30;          % corresponding to 0b00011110
+>> N = 70;                      % iterations (rows)
+>> M = 81;                      % space width (columns) 
+>> firstRow = seedRow(M);       % start with a single cell "on"
+>> field = ecaFun(wolframNumber,N,M,firstRow); % Go!
+```
+
+![Rule 30](rule30.png)
